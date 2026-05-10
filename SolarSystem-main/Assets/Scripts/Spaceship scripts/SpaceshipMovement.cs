@@ -13,25 +13,16 @@ public class SpaceshipMovement : MonoBehaviour
 
     public InputActionReference Move;
     public InputActionReference Rotate;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-            
-    }
-
     private void FixedUpdate()
     {
         movementDirection = Move.action.ReadValue<Vector2>();
-       // Vector2.ClampMagnitude(movementDirection, 1f);
         rotation = Rotate.action.ReadValue<Vector2>();
-        //Vector2.ClampMagnitude(movementDirection, 1f);
 
 
         rigidBody.AddForce(rigidBody.transform.TransformDirection(Vector3.forward) * movementDirection.y * velocityMove, ForceMode.VelocityChange);
