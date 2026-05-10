@@ -2525,6 +2525,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1587255619660933366, guid: 934961dfad1be1646a7b88d8c6029fdf, type: 3}
+      propertyPath: field of view
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587255619660933366, guid: 934961dfad1be1646a7b88d8c6029fdf, type: 3}
+      propertyPath: far clip plane
+      value: 100000
+      objectReference: {fileID: 0}
     - target: {fileID: 4850833148533512281, guid: 934961dfad1be1646a7b88d8c6029fdf, type: 3}
       propertyPath: m_Name
       value: Spaceship
@@ -2548,6 +2556,14 @@ PrefabInstance:
     - target: {fileID: 5869813512195503869, guid: 934961dfad1be1646a7b88d8c6029fdf, type: 3}
       propertyPath: velocityTurn
       value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8885856435411446628, guid: 934961dfad1be1646a7b88d8c6029fdf, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8885856435411446628, guid: 934961dfad1be1646a7b88d8c6029fdf, type: 3}
+      propertyPath: m_LinearDamping
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

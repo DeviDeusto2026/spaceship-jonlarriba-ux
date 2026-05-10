@@ -29,9 +29,9 @@ public class SpaceshipMovement : MonoBehaviour
     private void FixedUpdate()
     {
         movementDirection = Move.action.ReadValue<Vector2>();
-        Vector2.ClampMagnitude(movementDirection, 1f);
+       // Vector2.ClampMagnitude(movementDirection, 1f);
         rotation = Rotate.action.ReadValue<Vector2>();
-        Vector2.ClampMagnitude(movementDirection, 1f);
+        //Vector2.ClampMagnitude(movementDirection, 1f);
 
 
         rigidBody.AddForce(rigidBody.transform.TransformDirection(Vector3.forward) * movementDirection.y * velocityMove, ForceMode.VelocityChange);
