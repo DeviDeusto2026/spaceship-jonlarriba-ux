@@ -5,6 +5,7 @@ public class BulletShoot : MonoBehaviour
 {
     public InputActionReference shoot;
     public GameObject bullet;
+    public GameObject bulletSpawner;
     public float force;
 
     private Quaternion q;
@@ -12,7 +13,7 @@ public class BulletShoot : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        q = new Quaternion(0, 0, 0, 0);
+        q = new Quaternion(90, 90, 90, 0);
         shoot.action.started += shootDown;
 
     }
@@ -28,27 +29,26 @@ public class BulletShoot : MonoBehaviour
 
     void shootDown(InputAction.CallbackContext context)
     {
-        GameObject newBullet = Object.Instantiate(bullet, transform.position + Vector3.forward * 4, q);
-        newBullet.GetComponent<Rigidbody>().AddForce(this.transform.forward * force);
-
+        GameObject newBullet = Object.Instantiate(bullet, bulletSpawner.transform.position, q);
+        newBullet.GetComponent<Rigidbody>().AddForce(transform.forward * force);
     }
     private void FixedUpdate()
     {
-    //    int layerMask = 1 << 10;
-    //    layerMask = ~layerMask;
+        //int layerMask = 1 << 10;
+        //layerMask = ~layerMask;
 
-    //    RaycastHit hit;
+        //RaycastHit hit;
 
-    //    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
-    //    {
-    //        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
-    //        Debug.Log("Did hit" + hit.collider.gameObject.name);
-    //    }
-    //    else
-    //    {
-    //        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-    //        Debug.Log("not hitting");
-    //    }
+        //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        //{
+        //    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
+        //    Debug.Log("Did hit" + hit.collider.gameObject.name);
+        //}
+        //else
+        //{
+        //    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+        //    Debug.Log("not hitting");
+        //}
 
     }
 }
