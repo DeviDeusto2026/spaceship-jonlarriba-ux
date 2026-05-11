@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    public Transform spaceship;
     public float velocity;
 
+    private Transform spaceship;
     private int health = 3;
     private Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        GameObject par = GameObject.Find("Spaceship/13.1");
+        spaceship = par.transform;
     }
 
     // Update is called once per frame
@@ -22,7 +24,16 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
+        {
+            health--;
+            Debug.Log(health);
         }
     }
 }
