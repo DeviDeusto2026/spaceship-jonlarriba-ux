@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     public Transform spaceship;
-    public int velocity;
+    public float velocity;
 
     private int health = 3;
     private Rigidbody rb;
@@ -18,7 +18,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         transform.LookAt(spaceship);
 
-        rb.AddForce(rb.transform.TransformDirection(Vector3.forward) *  velocity * Time.deltaTime, ForceMode.VelocityChange);
+        transform.position += rb.transform.TransformDirection(Vector3.forward) * velocity;
 
         if (health <= 0)
         {
