@@ -16,6 +16,8 @@ public class BulletShoot : MonoBehaviour
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip shootSound;
+    [SerializeField] private AudioSource audioSourceFallingBombg;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,6 +46,7 @@ public class BulletShoot : MonoBehaviour
         GameObject newBomb = Object.Instantiate(bombObject, bulletSpawner.transform.position, q);
         newBomb.GetComponent<Rigidbody>().AddForce(transform.forward * bombForce, ForceMode.Impulse);
         audioSource.PlayOneShot(shootSound);
+        audioSourceFallingBombg.Play();
         PlayerData.isBombing = true;
     }
     private void FixedUpdate()

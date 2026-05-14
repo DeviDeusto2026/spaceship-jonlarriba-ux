@@ -227,7 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0280c351fe8c0754c9bd92d586e8a5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BombBehaviour
-  explosionTimer: 2
+  explosionTimer: 3
+  audioSourceExplosion: {fileID: 0}
 --- !u!54 &7442851991170335081
 Rigidbody:
   m_ObjectHideFlags: 0
