@@ -21,6 +21,8 @@ public class BossBehaviour : MonoBehaviour
 
     public GameObject enemy;
 
+    private int bombs;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -36,6 +38,8 @@ public class BossBehaviour : MonoBehaviour
         thresholds[0] = (maxHealth * 25) / 100;
         thresholds[1] = (maxHealth * 50) / 100;
         thresholds[2] = (maxHealth * 75) / 100;
+
+        bombs = PlayerData.remainingBombs;
 
     }
 
@@ -61,7 +65,11 @@ public class BossBehaviour : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        
+        if (bombs != PlayerData.remainingBombs)
+        {
+            health -= 30;
+            bombs = PlayerData.remainingBombs;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
