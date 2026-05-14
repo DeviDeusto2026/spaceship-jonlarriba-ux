@@ -1,13 +1,20 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class enemySpawner : MonoBehaviour
 {
-    public float timeLeft = 1.0f;
-    public float untilBossSpawn = 10.0f;
+    public float timeLeft = 2.0f;
+    public float untilBossSpawn = 60.0f;
     public GameObject enemy;
+
+    public GameObject bossSpawner;
+
+    [SerializeField] private AudioSource startTrack;
+    
     private void Start()
     {
-        
+        bossSpawner.SetActive(false);
+        startTrack.Play();
     }
     void Update()
     {
@@ -21,6 +28,7 @@ public class enemySpawner : MonoBehaviour
         }
         if(untilBossSpawn < 0)
         {
+            bossSpawner.SetActive(true);
             this.gameObject.SetActive(false);
         }
     }

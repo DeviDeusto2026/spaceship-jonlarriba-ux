@@ -7,12 +7,20 @@ public class EnemyBehaviour : MonoBehaviour
     private Transform spaceship;
     private int health = 3;
     private Rigidbody rb;
+
+    [SerializeField] private AudioSource audioSourceMetal;
+    [SerializeField] private AudioSource audioSourceExplosion;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         GameObject par = GameObject.Find("Spaceship/13.1");
         spaceship = par.transform;
+
+        GameObject audioMetal = GameObject.Find("AudioSources/EnemyAudioMetal");
+        audioSourceMetal = audioMetal.GetComponent<AudioSource>();
+        GameObject audio = GameObject.Find("AudioSources/EnemyAudioExplosion");
+        audioSourceExplosion = audio.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,6 +31,7 @@ public class EnemyBehaviour : MonoBehaviour
         transform.Rotate(new Vector3(0, 1, 0), 90.0f);
         if (health <= 0)
         {
+            audioSourceExplosion.Play();
             Destroy(this.gameObject);
         }
     }
@@ -31,6 +40,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
+            audioSourceMetal.Play();
             health--;
             Debug.Log(health);
         }

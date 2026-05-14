@@ -10,10 +10,14 @@ public class BulletShoot : MonoBehaviour
 
     private Quaternion q;
     private RaycastHit hit;
+
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip shootSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        q = new Quaternion(90, 90, 90, 0);
+        q = new Quaternion(0, 0, 0, 0);
         shoot.action.started += shootDown;
 
     }
@@ -31,7 +35,9 @@ public class BulletShoot : MonoBehaviour
     {
         GameObject newBullet = Object.Instantiate(bullet, bulletSpawner.transform.position, q);
         newBullet.GetComponent<Rigidbody>().AddForce(transform.forward * force, ForceMode.Impulse);
+        audioSource.PlayOneShot(shootSound);    
     }
+
     private void FixedUpdate()
     {
         //int layerMask = 1 << 10;
