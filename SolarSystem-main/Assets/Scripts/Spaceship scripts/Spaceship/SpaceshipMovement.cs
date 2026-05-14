@@ -7,7 +7,7 @@ public class SpaceshipMovement : MonoBehaviour
     private Vector2 movementDirection;
     private Vector2 rotation;
     private Vector2 roll;
-    public Rigidbody rigidBody;
+    private Rigidbody rigidBody;
 
     public float velocityMove;
     public float velocityTurn;

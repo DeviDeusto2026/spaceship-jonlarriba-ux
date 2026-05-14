@@ -4,9 +4,12 @@ using UnityEngine.InputSystem;
 public class BulletShoot : MonoBehaviour
 {
     public InputActionReference shoot;
+    public InputActionReference bomb;
     public GameObject bullet;
+    public GameObject bombObject;
     public GameObject bulletSpawner;
     public float force;
+    public float bombForce;
 
     private Quaternion q;
     private RaycastHit hit;
@@ -19,16 +22,7 @@ public class BulletShoot : MonoBehaviour
     {
         q = new Quaternion(0, 0, 0, 0);
         shoot.action.started += shootDown;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-            
-            
+        bomb.action.started += bombDown;
     }
 
     void shootDown(InputAction.CallbackContext context)
@@ -38,6 +32,12 @@ public class BulletShoot : MonoBehaviour
         audioSource.PlayOneShot(shootSound);    
     }
 
+    void bombDown(InputAction.CallbackContext context)
+    {
+        GameObject newBomb = Object.Instantiate(bombObject, bulletSpawner.transform.position, q);
+        newBomb.GetComponent<Rigidbody>().AddForce(transform.forward * bombForce, ForceMode.Impulse);
+        audioSource.PlayOneShot(shootSound);
+    }
     private void FixedUpdate()
     {
         //int layerMask = 1 << 10;

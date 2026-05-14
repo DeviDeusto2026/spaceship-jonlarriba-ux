@@ -10,6 +10,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     [SerializeField] private AudioSource audioSourceMetal;
     [SerializeField] private AudioSource audioSourceExplosion;
+
+    private int bombs;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +23,8 @@ public class EnemyBehaviour : MonoBehaviour
         audioSourceMetal = audioMetal.GetComponent<AudioSource>();
         GameObject audio = GameObject.Find("AudioSources/EnemyAudioExplosion");
         audioSourceExplosion = audio.GetComponent<AudioSource>();
+
+        bombs = PlayerData.remainingBombs;
     }
 
     // Update is called once per frame
@@ -32,6 +36,11 @@ public class EnemyBehaviour : MonoBehaviour
         if (health <= 0)
         {
             audioSourceExplosion.Play();
+            Destroy(this.gameObject);
+        }
+
+        if (bombs != PlayerData.remainingBombs)
+        {
             Destroy(this.gameObject);
         }
     }
