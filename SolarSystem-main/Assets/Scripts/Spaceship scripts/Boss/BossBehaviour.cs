@@ -62,7 +62,7 @@ public class BossBehaviour : MonoBehaviour
         if (health <= 0)
         {
             audioSourceExplosion.Play();
-            Destroy(this.gameObject);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Win");
         }
 
         if (bombs != PlayerData.remainingBombs)

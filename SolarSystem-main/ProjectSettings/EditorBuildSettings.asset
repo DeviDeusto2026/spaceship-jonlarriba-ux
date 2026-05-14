@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: baf3fa7331ec2d14d98e23a3284a7180
+  - enabled: 1
     path: Assets/Scenes/SolarSystemScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 885308ac05bd6b84593744f37f23398d
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: e739c63e1b70d564596777a244bf5358
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c81edd69b330b4f4ea298680dacb86d3, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -2882,7 +2882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemySpawner
   timeLeft: 2
-  untilBossSpawn: 2
+  untilBossSpawn: 66
   enemy: {fileID: 1928027606910539872, guid: 8582f8fa2ccbe4f4fb1f0d3b3b4f1d59, type: 3}
   bossSpawner: {fileID: 1333693169}
   startTrack: {fileID: 48621388}
