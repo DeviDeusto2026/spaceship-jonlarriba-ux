@@ -19,9 +19,8 @@ public class EnemyBehaviour : MonoBehaviour
     void Update()
     {
         transform.LookAt(spaceship);
-
         transform.position += rb.transform.TransformDirection(Vector3.forward) * velocity;
-
+        transform.Rotate(new Vector3(0, 1, 0), 90.0f);
         if (health <= 0)
         {
             Destroy(this.gameObject);

@@ -2495,6 +2495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemySpawner
   timeLeft: 1
+  untilBossSpawn: 10
   enemy: {fileID: 1928027606910539872, guid: 8582f8fa2ccbe4f4fb1f0d3b3b4f1d59, type: 3}
 --- !u!4 &1062904842
 Transform:
@@ -3312,6 +3313,14 @@ PrefabInstance:
     - target: {fileID: 2593741929507590215, guid: 934961dfad1be1646a7b88d8c6029fdf, type: 3}
       propertyPath: m_Name
       value: Spaceship
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592335166282071779, guid: 934961dfad1be1646a7b88d8c6029fdf, type: 3}
+      propertyPath: Roll
+      value: 
+      objectReference: {fileID: -5170099471203786729, guid: c81edd69b330b4f4ea298680dacb86d3, type: 3}
+    - target: {fileID: 3592335166282071779, guid: 934961dfad1be1646a7b88d8c6029fdf, type: 3}
+      propertyPath: rollSpeed
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8050141197946861937, guid: 934961dfad1be1646a7b88d8c6029fdf, type: 3}
       propertyPath: m_LocalPosition.x

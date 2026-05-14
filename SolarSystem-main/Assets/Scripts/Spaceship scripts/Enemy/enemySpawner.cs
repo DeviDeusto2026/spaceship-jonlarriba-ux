@@ -3,6 +3,7 @@ using UnityEngine;
 public class enemySpawner : MonoBehaviour
 {
     public float timeLeft = 1.0f;
+    public float untilBossSpawn = 10.0f;
     public GameObject enemy;
     private void Start()
     {
@@ -10,12 +11,17 @@ public class enemySpawner : MonoBehaviour
     }
     void Update()
     {
+        untilBossSpawn -= Time.deltaTime;
         timeLeft -= Time.deltaTime;
         if (timeLeft < 0)
         {
             Vector3 v3 = calculateSpawnPosition();
             Object.Instantiate(enemy, v3, Quaternion.identity);
             timeLeft = 1.0f;
+        }
+        if(untilBossSpawn < 0)
+        {
+            this.gameObject.SetActive(false);
         }
     }
 
