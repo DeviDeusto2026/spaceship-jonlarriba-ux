@@ -68,6 +68,7 @@ public class BossBehaviour : MonoBehaviour
         if (bombs != PlayerData.remainingBombs)
         {
             health -= 30;
+            PlayerData.bossHealth -= 30;
             bombs = PlayerData.remainingBombs;
         }
     }
@@ -78,6 +79,7 @@ public class BossBehaviour : MonoBehaviour
         {
             audioSourceMetal.Play();
             health--;
+            PlayerData.bossHealth--;
             Debug.Log(health);
             if (thresholds.Contains(health))
             {

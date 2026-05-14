@@ -20,6 +20,11 @@ public class BulletShoot : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        PlayerData.isBombing = false;
+        PlayerData.remainingBombs = 3;
+        PlayerData.timeUntilBoss = 66.0f;
+        PlayerData.bossHealth = 200;
+
         q = new Quaternion(0, 0, 0, 0);
         shoot.action.started += shootDown;
         bomb.action.started += bombDown;
@@ -34,9 +39,12 @@ public class BulletShoot : MonoBehaviour
 
     void bombDown(InputAction.CallbackContext context)
     {
+        if (PlayerData.remainingBombs <= 0) return;
+        if (PlayerData.isBombing == true) return;
         GameObject newBomb = Object.Instantiate(bombObject, bulletSpawner.transform.position, q);
         newBomb.GetComponent<Rigidbody>().AddForce(transform.forward * bombForce, ForceMode.Impulse);
         audioSource.PlayOneShot(shootSound);
+        PlayerData.isBombing = true;
     }
     private void FixedUpdate()
     {

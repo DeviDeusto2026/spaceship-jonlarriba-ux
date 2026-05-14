@@ -16,6 +16,7 @@ public class BombBehaviour : MonoBehaviour
         explosionTimer -= Time.deltaTime;
         if (explosionTimer <= 0)
         {
+            PlayerData.isBombing = false;
             PlayerData.remainingBombs--;
             Destroy(this.gameObject);
         }
