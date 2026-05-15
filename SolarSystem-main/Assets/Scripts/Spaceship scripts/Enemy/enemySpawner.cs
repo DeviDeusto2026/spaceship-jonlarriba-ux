@@ -18,6 +18,7 @@ public class enemySpawner : MonoBehaviour
     {
         panelAfterBoss.SetActive(false);
         panelBeforeBoss.SetActive(true);
+        PlayerData.timeUntilBoss = 66.0f;
         untilBossSpawn = PlayerData.timeUntilBoss;
         bossSpawner.SetActive(false);
         startTrack.Play();

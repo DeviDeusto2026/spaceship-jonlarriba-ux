@@ -24,7 +24,6 @@ public class BulletShoot : MonoBehaviour
     {
         PlayerData.isBombing = false;
         PlayerData.remainingBombs = 3;
-        PlayerData.timeUntilBoss = 66.0f;
         PlayerData.bossHealth = 200;
 
         q = new Quaternion(0, 0, 0, 0);
